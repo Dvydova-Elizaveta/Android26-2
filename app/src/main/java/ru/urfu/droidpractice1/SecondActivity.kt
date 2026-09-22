@@ -21,7 +21,6 @@ class SecondActivity : ComponentActivity() {
         R.drawable.photo5
     )
 
-
     private var currentPhoto = 0
 
     private val photos2 = listOf(
@@ -30,7 +29,6 @@ class SecondActivity : ComponentActivity() {
         R.drawable.photo8,
         R.drawable.photo9
     )
-
 
     private var currentPhoto2 = 0
 
@@ -45,17 +43,6 @@ class SecondActivity : ComponentActivity() {
         val isRead = intent.getBooleanExtra("is_read", false)
         binding.readSwitch.isChecked = isRead
 
-        val toolbarTitle = binding.toolbar.findViewById<TextView>(
-            androidx.appcompat.R.id.action_bar_title
-        )
-
-        toolbarTitle?.apply {
-            typeface = ResourcesCompat.getFont(
-                this@SecondActivity,
-                R.font.kristolit_trial_black_italic
-            )
-            textSize = 28f
-        }
 
         binding.nextButton.setOnClickListener {
             if (currentPhoto < photos.size - 1) {
@@ -70,6 +57,7 @@ class SecondActivity : ComponentActivity() {
                 showPhoto()
             }
         }
+
 
         val captions2 = listOf(
             getString(R.string.phototext2),
@@ -96,8 +84,6 @@ class SecondActivity : ComponentActivity() {
             returnResult()
         }
     }
-
-    // ну да это конечно кошмар.. но я потом поправлю, чтобы была 1 функция
 
     private fun showPhoto() {
         binding.articleImage.setImageResource(photos[currentPhoto])
